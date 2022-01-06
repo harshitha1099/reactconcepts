@@ -1,34 +1,28 @@
-import logo from "./logo.svg";
-import "./App.css";
-import Navbar from "./components/Navbar";
+import React, { Component } from "react";
+import Navbar from "./Navbar";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Route } from "react-router-dom";
-import Recipe1 from "./components/Recipe1";
-import Home from "./components/Home";
-import { useState } from 'react';
-import Recipe2 from "./components/Recipe2";
-
-function App() {
-
-  return (
-    <Router>
-      <div className="App">
+import Recipe1 from "./Recipe1";
+import Recipe2 from "./Recipe2";
+ 
+class App extends Component {
+  render() {
+    return (<Router>
+      <div className="header">
+        <h1 style={{backgroundColor:"blue"},{textAlign:"center"}}>Recipe Book</h1>
         <Navbar />
 
         <Switch >
-          <Route exact path='/recipe1'>
-            <Recipe1 />
-          </Route>
-          <Route exact path='/recipe2'>
-            <Recipe2 />
-          </Route>
-          <Route exact path='/'>
-            <Home />
-          </Route>
+            <Route exact path='/Recipe2'>
+              <Recipe2 />
+            </Route>
+            <Route exact path='/'>
+              <Recipe1 />
+            </Route>
         </Switch>
       </div>
     </Router>
-  );
+       
+    );
+  }
 }
-
 export default App;
